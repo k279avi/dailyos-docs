@@ -1,0 +1,51 @@
+---
+name: Get Commit
+---
+
+# Get Commit
+
+This method can be used to get a commit object using the commit id
+
+### API
+
+```js
+   getCommit(id, path) => Promise<Commit>
+```
+
+| param | type   | description                      |
+| :---- | :----- | :------------------------------- |
+| id    | string | Commit ID                        |
+| path  | string | Path to the repository directory |
+
+### Query
+
+```js
+query {
+   getCommit($id: String!, path: String!) {
+      getCommit(id: $id, path: $path) {
+         message
+         tree
+         parent
+         author {
+            name
+            email
+            timestamp
+         }
+         committer {
+            name
+            email
+            timestamp
+         }
+      }
+   }
+}
+```
+
+### Variables
+
+```js
+{
+   id: '5bf6efa456a358c4dd39993cd982c59b57952e0b'
+   path: 'AppName/data/EntityName'
+}
+```

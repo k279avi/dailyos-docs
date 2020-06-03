@@ -1,0 +1,44 @@
+---
+name: Rename File
+---
+
+# Rename File
+
+This method can be used to rename a file in filesystem
+
+### API
+
+```js
+   renameFile(oldPath, newPath) => Promise<Result>
+```
+
+| param   | type   | description                   |
+| :------ | :----- | :---------------------------- |
+| oldPath | string | Path where the file is stored |
+| newPath | string | Path with new file name       |
+
+### Mutation
+
+```js
+mutation renameFile($oldPath: String!, $newPath: String!) {
+  renameFile(oldPath: $oldPath, newPath: $newPath) {
+    ... on Error {
+      success
+      error
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "oldPath": "appname/data/entityname/filename.json",
+  "newPath": "appname/data/entityname/filename1.json"
+}
+```

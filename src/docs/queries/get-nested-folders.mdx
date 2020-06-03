@@ -1,0 +1,48 @@
+---
+name: Get Nested Folders
+---
+
+# Get nested folders
+
+This method can be used to get the nested folders only from filesystem
+
+### API
+
+```js
+   getNestedFolders(path) => Promise<Folder>
+```
+
+| param | type   | description                     |
+| :---- | :----- | :------------------------------ |
+| path  | string | Path where the folder is stored |
+
+### Query
+
+```js
+query {
+   getNestedFolders($path: String) {
+      getNestedFolders(path: $path) {
+         name
+         path
+         type
+         size
+         createdAt
+         children {
+            name
+            path
+            type
+            size
+            createdAt
+         }
+      }
+   }
+}
+```
+
+### Variables
+
+```js
+{
+   "path": "appname/data/entityname"
+}
+```

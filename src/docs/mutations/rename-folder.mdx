@@ -1,0 +1,44 @@
+---
+name: Rename Folder
+---
+
+# Rename Folder
+
+This method can be used to rename a folder in filesystem
+
+### API
+
+```js
+   renameFolder(oldPath, newPath) => Promise<Result>
+```
+
+| param   | type   | description                     |
+| :------ | :----- | :------------------------------ |
+| oldPath | string | Path where the folder is stored |
+| newPath | string | Path with new folder name       |
+
+### Mutation
+
+```js
+mutation renameFolder($oldPath: String, $newPath: String) {
+  renameFolder(oldPath: $oldPath, newPath: $newPath) {
+    ... on Error {
+      success
+      error
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "oldPath": "appname/data/entityname/foldername"
+  "newPath": "appname/data/entityname/foldername1"
+}
+```

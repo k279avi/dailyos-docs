@@ -1,0 +1,42 @@
+---
+name: Open File
+---
+
+# Get open file
+
+This method can be used to open a file from any app into file editor
+
+### API
+
+```js
+   openFile(path) => Promise<File>
+```
+
+| param | type   | description                   |
+| :---- | :----- | :---------------------------- |
+| path  | string | Path where the file is stored |
+
+### Query
+
+```js
+query openFile($path: String!){
+  openFile(path: $path) {
+    name
+    path
+    type
+    content
+    size
+    createdAt
+    commits
+    lastSaved
+  }
+}
+```
+
+### Variables
+
+```js
+{
+   "path": "appname/data/entityname/filename.json"
+}
+```

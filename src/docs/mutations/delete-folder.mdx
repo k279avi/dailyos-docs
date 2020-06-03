@@ -1,0 +1,42 @@
+---
+name: Delete Folder
+---
+
+# Delete Folder
+
+This method can be used to delete a folder in filesystem
+
+### API
+
+```js
+   deleteFolder(path) => Promise<Result>
+```
+
+| param | type   | description                     |
+| :---- | :----- | :------------------------------ |
+| path  | string | Path where the folder is stored |
+
+### Mutation
+
+```js
+mutation deleteFolder($path: String!) {
+  deleteFolder(path: $path) {
+    ... on Error {
+      success
+      error
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "path": "appname/data/entityname/foldername"
+}
+```

@@ -1,0 +1,105 @@
+---
+name: Install App
+---
+
+# Install App
+
+This method can be used to install a new app
+
+### API
+
+```js
+   install(name, schemas, apps, staging) => Promise<Result>
+```
+
+| param   | type    | description                    |
+| :------ | :------ | :----------------------------- |
+| name    | string  | Name of the app                |
+| schemas | string  | Schema of the app to install   |
+| apps    | string  | Apps to read from              |
+| staging | Boolean | Whether to stage a file or not |
+
+## Install Independent App Mutation
+
+### Mutation
+
+```js
+mutation installApp($name: String!, $schemas: String) {
+  installApp(name: $name, schemas: $schemas) {
+    ... on Error {
+      error
+      success
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "name": "Independent App",
+  "schemas": "{\n  \"schemas\": [\n    {\n      \"path\": \"Mobiles\",\n      \"entities\": [\n        {\n          \"name\": \"mobile\",\n          \"content\": {\n            \"name\": \"this is mobile schema\"\n          }\n        }\n      ]\n    },\n    {\n      \"path\": \"Laptops\",\n      \"entities\": [\n        {\n          \"name\": \"laptop\",\n          \"content\": {\n            \"name\": \"this is laptop schema\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+}
+```
+
+## Install Dependent App Mutation
+
+### Mutation
+
+```js
+mutation installApp($name: String!, $apps: String, $staging: Boolean) {
+  installApp(name: $name, apps: $apps, staging: $staging) {
+    ... on Error {
+      error
+      success
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "name": "Dependent App",
+  "apps": "{\n  \"apps\": [\n    {\n      \"name\": \"Independent\",\n      \"entities\": [{\n        \"name\": \"Mobiles\",\n        \"schema\": {\n          \"name\":\"String\"\n        }\n      }]\n    }\n  ]\n}"
+}
+```
+
+## Install Hybrid App Mutation
+
+### Mutation
+
+```js
+mutation installApp($name: String!, $schemas: String, $apps: String, $staging: Boolean) {
+  installApp(name: $name, schemas: $schemas, apps: $apps, staging: $staging) {
+    ... on Error {
+      error
+      success
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "name": "Hybrid App",
+  "schemas": "{\n  \"schemas\": [\n    {\n      \"path\": \"Recipes\",\n      \"entities\": [\n        {\n          \"name\": \"recipes\",\n          \"content\": {\n            \"name\": \"this is recipe schema\"\n          }\n        }\n      ]\n    },\n    {\n      \"path\": \"Dishes\",\n      \"entities\": [\n        {\n          \"name\": \"dish\",\n          \"content\": {\n            \"name\": \"this is dish schema\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+  "apps": "{\n  \"apps\": [\n    {\n      \"name\": \"Independent\",\n      \"entities\": [{\n        \"name\": \"Mobiles\",\n        \"schema\": {\n          \"name\":\"String\"\n        }\n      }]\n    }\n  ]\n}"
+}
+```

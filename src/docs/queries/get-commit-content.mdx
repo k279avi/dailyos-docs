@@ -1,0 +1,35 @@
+---
+name: Get Commit Content
+---
+
+# Get Commit Content
+
+This method can be used to get the content of the commit using commit id
+
+### API
+
+```js
+   getCommitContent(id, path) => Promise<string>
+```
+
+| param | type   | description                   |
+| :---- | :----- | :---------------------------- |
+| id    | string | Commit ID                     |
+| path  | string | Path where the file is stored |
+
+### Query
+
+```js
+query getCommitContent($id: String!, $path: String!){
+  getCommitContent(id: $id path: $path)
+}
+```
+
+### Variables
+
+```js
+{
+   "id": "5bf6efa456a358c4dd39993cd982c59b57952e0b",
+   "path": "appname/data/entityname/filename.json"
+}
+```

@@ -1,0 +1,42 @@
+---
+name: Delete File
+---
+
+# Delete File
+
+This method can be used to delete file in filesystem
+
+### API
+
+```js
+   deleteFile(path) => Promise<Result>
+```
+
+| param | type   | description                   |
+| :---- | :----- | :---------------------------- |
+| path  | string | Path where the file is stored |
+
+### Mutation
+
+```js
+mutation deleteFile($path: String) {
+  deleteFile(path: $path) {
+    ... on Error {
+      success
+      error
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "path": "appname/data/entityname/filename.json"
+}
+```

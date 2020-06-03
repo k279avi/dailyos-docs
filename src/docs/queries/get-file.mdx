@@ -1,0 +1,42 @@
+---
+name: Get File
+---
+
+# Get file
+
+This method can be used to get a file from filesystem
+
+### API
+
+```js
+   getFile(path) => Promise<File>
+```
+
+| param | type   | description                   |
+| :---- | :----- | :---------------------------- |
+| path  | string | Path where the file is stored |
+
+### Query
+
+```js
+query getFile($path: String!){
+  getFile(path: $path) {
+    name
+    path
+    content
+    createdAt
+    size
+    type
+    commits
+    lastSaved
+  }
+}
+```
+
+### Variables
+
+```js
+{
+   "path": "appname/data/entityname/filename.json"
+}
+```

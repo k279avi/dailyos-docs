@@ -1,0 +1,21 @@
+---
+name: Add and Commit
+---
+
+# Add and Commit
+
+This method can be used to stage a file and commit it.
+
+### API
+
+```js
+    addAndCommit({repoPath, filePath}, author, committer, message) => Promise<sha>
+```
+
+| param     | type   | description                                         |
+| :-------- | :----- | :-------------------------------------------------- |
+| repoPath  | string | Path to the repository                              |
+| filePath  | string | Relative path where the file stored from repository |
+| author    | object | Contains email and name of author                   |
+| committer | object | Contains email and name of committer                |
+| message   | string | Commit message                                      |

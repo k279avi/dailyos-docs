@@ -1,0 +1,44 @@
+---
+name: Draft File
+---
+
+# Draft File
+
+This method can be used to save a file as a draft in filesystem
+
+### API
+
+```js
+   draftFile(path, content) => Promise<Result>
+```
+
+| param   | type   | description                   |
+| :------ | :----- | :---------------------------- |
+| path    | string | Path where the file is stored |
+| content | string | Content to store in the file  |
+
+### Mutation
+
+```js
+mutation draftFile($path: String!, $content: String!) {
+  draftFile(path: $path, content: $content) {
+    ... on Error {
+      success
+      error
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "path": "appname/data/entityname/filename.json",
+  "content": "hello world!",
+}
+```

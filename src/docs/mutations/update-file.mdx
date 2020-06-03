@@ -1,0 +1,46 @@
+---
+name: Update File
+---
+
+# Update File
+
+This method can be used to update the content of a file stored in filesystem
+
+### API
+
+```js
+   updateFile(path, content, message) => Promise<Result>
+```
+
+| param   | type   | description                   |
+| :------ | :----- | :---------------------------- |
+| path    | string | Path where the file is stored |
+| content | string | Content to store in the file  |
+| message | string | Commit Message                |
+
+### Mutation
+
+```js
+mutation updateFile($path: String!, $content: String!, $message: String!) {
+  updateFile(path: $path, content: $content, message: $message) {
+    ... on Error {
+      success
+      error
+    }
+    ... on Success {
+      success
+      message
+    }
+  }
+}
+```
+
+### Variables
+
+```js
+{
+  "path": "appname/data/entityname/filename.json",
+  "content": "hello world!",
+  "message": "added: hello world!"
+}
+```

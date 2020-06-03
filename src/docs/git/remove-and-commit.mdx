@@ -1,0 +1,20 @@
+---
+name: Remove and Commit
+---
+
+# Remove and Commit
+
+This method can be used to remove a file from git index and commit it.
+
+### API
+
+```js
+    removeAndCommit({repoPath, filePath}, author, committer) => Promise<sha>
+```
+
+| param     | type   | description                                         |
+| :-------- | :----- | :-------------------------------------------------- |
+| repoPath  | string | Path to the repository                              |
+| filePath  | string | Relative path where the file stored from repository |
+| author    | object | Contains email and name of author                   |
+| committer | object | Contains email and name of committer                |

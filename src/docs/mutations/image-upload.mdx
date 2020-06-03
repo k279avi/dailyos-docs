@@ -1,0 +1,44 @@
+---
+name: Image Upload
+---
+
+# Image Upload
+
+This method can be used to upload files into the filesystem
+
+### API
+
+```js
+   imageUpload(files, path) => Promise<Result>
+```
+
+| param | type   | description                   |
+| :---- | :----- | :---------------------------- |
+| path  | string | Path where to store the files |
+| files | File   | Array of file object          |
+
+### Mutation
+
+```js
+mutation imageUpload($files: [Upload!]!, $path: String!) {
+   imageUpload(files: $files, path: $path) {
+      ... on Error {
+         success
+         error
+      }
+      ... on Success {
+         success
+         message
+      }
+   }
+}
+```
+
+### Variables
+
+```js
+{
+  "path": "appname/data/entityname/filename.json",
+  "files": [File]
+}
+```

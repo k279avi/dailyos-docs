@@ -1,0 +1,48 @@
+---
+name: Get Commit Log
+---
+
+# Get commit log
+
+This method can be used to get the commits made in a repository directory
+
+### API
+
+```js
+   getCommitLog(path) => Promise<[Commit]>
+```
+
+| param | type   | description                      |
+| :---- | :----- | :------------------------------- |
+| path  | string | Path to the repository directory |
+
+### Query
+
+```js
+query getCommitLog($path: String!){
+   getCommitLog(path: $path) {
+      oid
+      message
+      tree
+      parent
+      author {
+         name
+         email
+         timestamp
+      }
+      committer {
+         name
+         email
+         timestamp
+      }
+   }
+}
+```
+
+### Variables
+
+```js
+{
+   "path": "appname/data/entityname"
+}
+```

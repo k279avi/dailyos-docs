@@ -1,0 +1,46 @@
+---
+name: Get Files
+---
+
+# Get files
+
+This method can be used to get all the files within a folder
+
+### API
+
+```js
+   getFiles(path, offset, limit) => Promise<[File]>
+```
+
+| param  | type   | description                                |
+| :----- | :----- | :----------------------------------------- |
+| path   | string | Path to the folder to get the files inside |
+| offset | number | The number from where to start the page    |
+| limit  | number | Number of rows to fetch                    |
+
+### Query
+
+```js
+query getFiles($path: String!, $offset: Int!, $limit: Int!){
+  getFiles(path: $path, offset: $offset, limit: $limit) {
+    type
+    size
+    createdAt
+    commits
+    lastSaved
+    path
+    name
+    content
+  }
+}
+```
+
+### Variables
+
+```js
+{
+   "path": "appname/data/entityname",
+   "offset": 2,
+   "limit":10
+}
+```

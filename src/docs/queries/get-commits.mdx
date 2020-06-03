@@ -1,0 +1,51 @@
+---
+name: Get Commits
+---
+
+# Get commits
+
+This method can be used to get the commit object of multiple commits
+
+### API
+
+```js
+   getCommits(path, commits) => Promise<[Commit]>
+```
+
+| param   | type     | description                      |
+| :------ | :------- | :------------------------------- |
+| path    | string   | Path to the repository directory |
+| commits | [string] | Array of commit ids              |
+
+### Query
+
+```js
+query getCommits($path: String!, $commits: [String]!) {
+   getCommits(path: $path, commits: $commits) {
+      tree
+      parent
+      author {
+         name
+         email
+         timestamp
+      }
+      committer {
+         name
+         email
+         timestamp
+      }
+      message
+   }
+}
+```
+
+### Variables
+
+```js
+{
+  "path": "appname/data/entityname",
+  "commits": [
+      "6680f5bb5bf302b755358827492f4f5af4d751ad"
+    ]
+}
+```

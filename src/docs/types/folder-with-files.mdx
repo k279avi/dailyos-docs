@@ -1,0 +1,19 @@
+---
+name: Folder With Files
+---
+
+# Folder With Files
+
+This type represents folder object that can have children of type File or Folder
+
+```graphql
+type FolderWithFiles {
+   name: String
+   path: String
+   type: String
+   size: Int
+   createdAt: String
+   content: String
+   children: [FolderWithFiles]
+}
+```
