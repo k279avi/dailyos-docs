@@ -6,101 +6,73 @@ module.exports = {
       menu: [
          { title: 'Introduction', link: '/docs/introduction' },
          {
-            title: 'File',
+            title: 'Recipe App',
             children: [
-               { title: 'Create File', link: '/docs/file/create' },
-               { title: 'Delete File', link: '/docs/file/delete' },
-               { title: 'Update File', link: '/docs/file/update' },
-               { title: 'Read File', link: '/docs/file/read' },
-               { title: 'Rename File', link: '/docs/file/rename' }
+               { title: 'Overview', link: '/docs/recipe/overview' },
+               { title: 'Create Recipe', link: '/docs/recipe/create' },
+               { title: 'View Recipe', link: '/docs/recipe/view' }
             ]
          },
          {
-            title: 'Folder',
+            title: 'Store App',
             children: [
-               { title: 'Create Folder', link: '/docs/folder/create' },
-               { title: 'Delete Folder', link: '/docs/folder/delete' },
-               { title: 'Rename Folder', link: '/docs/folder/rename' }
+               { title: 'Overview', link: '/docs/store/overview' },
+               { title: 'Type of Products', link: '/docs/store/product-type' },
+               {
+                  title: 'Inventory Product',
+                  link: '/docs/store/inventory-product'
+               },
+               {
+                  title: 'Simple Recipe Product',
+                  link: '/docs/store/simple-recipe-product'
+               },
+               {
+                  title: 'Combo Product',
+                  link: '/docs/store/customizable-product'
+               },
+               {
+                  title: 'Customizable Product',
+                  link: '/docs/store/combo-product'
+               },
+               { title: 'Setup Menu', link: '/docs/store/setup-menu' }
             ]
          },
          {
-            title: 'Git',
+            title: 'Inventory App',
             children: [
-               { title: 'Add and Commit', link: '/docs/git/add-and-commit' },
+               { title: 'Overview', link: '/docs/inventory/overview' },
+               { title: 'Supplier', link: '/docs/inventory/supplier' },
                {
-                  title: 'Remove and Commit',
-                  link: '/docs/git/remove-and-commit'
-               }
+                  title: 'Supplier Item',
+                  link: '/docs/inventory/supplier-item'
+               },
+               {
+                  title: 'Purchase Order',
+                  link: '/docs/inventory/purchase-order'
+               },
+               { title: 'Work Order', link: '/docs/inventory/work-order' }
             ]
          },
          {
-            title: 'Types',
-            children: [
-               { title: 'File', link: '/docs/types/file' },
-               { title: 'Folder', link: '/docs/types/folder' },
-               {
-                  title: 'Folder with Files',
-                  link: '/docs/types/folder-with-files'
-               },
-               { title: 'Success', link: '/docs/types/success' },
-               { title: 'Error', link: '/docs/types/error' },
-               { title: 'Result', link: '/docs/types/result' },
-               { title: 'Subscription', link: '/docs/types/subscription' },
-               { title: 'Author', link: '/docs/types/author' },
-               { title: 'Commit', link: '/docs/types/commit' },
-               { title: 'Committer', link: '/docs/types/committer' }
-            ]
+            title: 'Order App',
+            children: [{ title: 'Overview', link: '/docs/order/overview' }]
          },
          {
-            title: 'Queries',
-            children: [
-               { title: 'Get Commit', link: '/docs/queries/get-commit' },
-               {
-                  title: 'Get Commit Content',
-                  link: '/docs/queries/get-commit-content'
-               },
-               {
-                  title: 'Get Commit Log',
-                  link: '/docs/queries/get-commit-log'
-               },
-               { title: 'Get Commits', link: '/docs/queries/get-commits' },
-               { title: 'Get File', link: '/docs/queries/get-file' },
-               { title: 'Get Files', link: '/docs/queries/get-files' },
-               {
-                  title: 'Get Folder with Files',
-                  link: '/docs/queries/get-folder-with-files'
-               },
-               {
-                  title: 'Get Nested Folders',
-                  link: '/docs/queries/get-nested-folders'
-               },
-               { title: 'Open File', link: '/docs/queries/open-file' }
-            ]
+            title: 'Safety App',
+            children: [{ title: 'Overview', link: '/docs/safety/overview' }]
          },
          {
-            title: 'Mutations',
+            title: 'Setting App',
             children: [
-               { title: 'Create File', link: '/docs/mutations/create-file' },
-               { title: 'Delete File', link: '/docs/mutations/delete-file' },
-               { title: 'Draft File', link: '/docs/mutations/draft-file' },
-               { title: 'Rename File', link: '/docs/mutations/rename-file' },
-               { title: 'Update File', link: '/docs/mutations/update-file' },
-               {
-                  title: 'Create Folder',
-                  link: '/docs/mutations/create-folder'
-               },
-               {
-                  title: 'Rename Folder',
-                  link: '/docs/mutations/rename-folder'
-               },
-               {
-                  title: 'Delete Folder',
-                  link: '/docs/mutations/delete-folder'
-               },
-               { title: 'Image Upload', link: '/docs/mutations/image-upload' },
-               { title: 'Install App', link: '/docs/mutations/install-app' }
+               { title: 'Overview', link: '/docs/setting/overview' },
+               { title: 'Devices', link: '/docs/setting/devices' },
+               { title: 'Master', link: '/docs/setting/master' },
+               { title: 'Roles', link: '/docs/setting/roles' },
+               { title: 'Users', link: '/docs/setting/users' },
+               { title: 'Stations', link: '/docs/setting/stations' }
             ]
-         }
+         },
+         { title: 'Glossary', link: '/docs/glossary' }
       ]
    },
    plugins: [

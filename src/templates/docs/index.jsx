@@ -2,9 +2,10 @@ import React from 'react'
 import { graphql, navigate } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
-
+import styled from 'styled-components'
 import Layout from '../../sections/Layout'
 import { CodeBlock } from '../../components'
+import kebabcase from '../../utils/kebabcase'
 
 import normalize from '../../utils/normalize'
 
@@ -26,6 +27,18 @@ import {
    Next
 } from './styled'
 
+const Toc = styled.ul`
+   display: flex;
+   li {
+      line-height: '32px';
+      margin-top: '8px';
+   }
+`
+const InnerScroll = styled.div`
+   overflow: hidden;
+   overflow-y: scroll;
+`
+
 const DocTemplate = ({ data: { mdx, site }, path }) => {
    const [next, setNext] = React.useState(null)
    const [prev, setPrev] = React.useState(null)
@@ -45,11 +58,31 @@ const DocTemplate = ({ data: { mdx, site }, path }) => {
    return (
       <Layout path={path}>
          <Wrapper>
+            {typeof mdx.tableOfContents.items === 'undefined' ? null : (
+               <Toc>
+                  <InnerScroll>
+                     <H2>Table of contents</H2>
+                     {mdx.tableOfContents.items.map(i => (
+                        <li key={i.url}>
+                           <a href={i.url} key={i.url}>
+                              {i.title}
+                           </a>
+                        </li>
+                     ))}
+                  </InnerScroll>
+               </Toc>
+            )}
             <MDXProvider
                components={{
-                  h1: ({ children }) => <H1>{children}</H1>,
-                  h2: ({ children }) => <H2>{children}</H2>,
-                  h3: ({ children }) => <H3>{children}</H3>,
+                  h1: ({ children }) => (
+                     <H1 id={kebabcase(children)}>{children}</H1>
+                  ),
+                  h2: ({ children }) => (
+                     <H2 id={kebabcase(children)}>{children}</H2>
+                  ),
+                  h3: ({ children }) => (
+                     <H3 id={kebabcase(children)}>{children}</H3>
+                  ),
                   p: ({ children }) => <Para>{children}</Para>,
                   a: ({ href, children, title }) => (
                      <a href={href} title={title}>
@@ -102,6 +135,7 @@ export const query = graphql`
    query($slug: String) {
       mdx(fields: { slug: { eq: $slug } }) {
          body
+         tableOfContents
          frontmatter {
             title
          }
